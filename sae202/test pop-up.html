@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up avec bouton Accepter</title>
+    <style>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            text-align: center;
+            display: none;
+        }
+
+        #popup h2 {
+            margin-top: 0;
+        }
+
+        #acceptBtn {
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById("overlay");
+            var popup = document.getElementById("popup");
+            var acceptBtn = document.getElementById("acceptBtn");
+
+            acceptBtn.addEventListener("click", function() {
+                overlay.remove();
+                popup.remove();
+                // Enregistrez l'acceptation de l'utilisateur.
+            });
+
+            // Vérifiez si l'utilisateur a déjà accepté (par exemple, en vérifiant les cookies).
+            // Si l'utilisateur a déjà accepté, masquez le pop-up.
+            // Sinon, affichez le pop-up.
+            var userAccepted = false;
+            if (!userAccepted) {
+                overlay.style.display = "block";
+                popup.style.display = "block";
+            }
+        });
+    </script>
+</head>
+<body>
+<p>woah je teste </p>
+<div id="overlay"></div>
+<div id="popup">
+    <h2>Pop-up</h2>
+    <p>Ceci est un cookie.</p>
+    <button id="acceptBtn">Accepter</button>
+</div>
+</body>
+</html>
